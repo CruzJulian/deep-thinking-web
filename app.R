@@ -37,6 +37,26 @@ fun_ui <- function(side_menu, main_content, menu_movil = menu_mov){
 
 # Contenidos --------------------------------------------------------------
 
+cntnt <- list(
+  eq = list(
+    titulo = "Equipo",
+    texto = "Somos una startup ágil. Nuestro equipo en crecimiento es altamente calificado y competitivo, lo que nos permite movernos mas rápido para satisfacer las necesidades de tu organización.",
+    ang = list(
+      nom = "Ángela",
+      desc = "Más de diez años de experiencia en procesos administrativos que se reflejan en visión y estrategia."
+    ),
+    jul = list(
+      nom = "Julián",
+      desc = "Asesoría técnica soportada por más de ocho años de trayectoria en tecnolgías de análisis de datos."
+    ),
+    liz = list(
+      nom = "Elizabeth",
+      desc = "Apoyo administrativo con sólidas beses en gestión y optimización de procesos."
+    )
+  )
+)
+
+
 
 # Contenidos móviles ------------------------------------------------------
 
@@ -100,33 +120,44 @@ div(
   style="background-image: url(002.jpg); background-position: center center; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
   id="equipo",
   class = "row m-0",
-  h1("Equipo", class = "p-5 text-muted"),
+  h1(class = "p-5 text-muted", cntnt$eq$titulo),
   div(
-    class = "row d-flex flex-row justify-content-center m-0 p-0",
+    class = "row d-flex flex-row justify-content-center m-0 p-0 text-muted",
     div(
-      class = "card m-3 p-0 rounded-0 border-0", style="width: 25rem;",
-      div(class="card-header", "Prosperico"),
-      img(class = "card-img-top p-3", src = "009.jpeg"),
+      class = "card mx-auto p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+      # div(class="card-header", "Nuestra CFO"),
+      img(class = "card-img-top p-3", src = "009.png"),
       div(
         class = "card-body",
-        h5(class = "card-title", "Ángela"),
-        p(class = "card_text", "Admin"),
-        a(href = "#", class = "btn btn-success", "ver más")
+        h5(class = "card-title", cntnt$eq$ang$nom),
+        p(class = "card_text", cntnt$eq$ang$desc),
+        # a(href = "#", class = "btn btn-success", "ver más")
       )
     ),
     div(
-      class = "card m-3 p-0 rounded-0 border-0", style="width: 25rem;",
-      div(class="card-header", "Prosperico"),
-      img(class = "card-img-top p-3", src = "007.jpeg"),
+      class = "card mx-auto p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+      # div(class="card-header", "Nuestro CEO"),
+      img(class = "card-img-top p-3", src = "007.png"),
       div(
         class = "card-body",
-        h5(class = "card-title", "Julián"),
-        p(class = "card_text", "Data"),
-        a(href = "#", class = "btn btn-success", "ver más")
+        h5(class = "card-title", cntnt$eq$jul$nom),
+        p(class = "card_text", cntnt$eq$jul$desc),
+        # a(href = "#", class = "btn btn-success", "ver más")
+      )
+    ),
+    div(
+      class = "card mx-auto p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+      # div(class="card-header", "Nuestro CEO"),
+      img(class = "card-img-top p-3", src = "008.png"),
+      div(
+        class = "card-body",
+        h5(class = "card-title", cntnt$eq$liz$nom),
+        p(class = "card_text", cntnt$eq$liz$desc),
+        # a(href = "#", class = "btn btn-success", "ver más")
       )
     )
   ),
-  h3(class = "text-center text-muted p-5", "Somos una startup ágil. Nuestro equipo es pequeño, pero se mueve muy rápido para satisfacer todas las necesidades de las empresas."),
+  h3(class = "text-center text-muted p-5", cntnt$eq$texto),
   # style="height: 90vh;",
 ) -> equipo
 
@@ -134,40 +165,45 @@ div(
   id="productos",
   class = "row m-0 bg-danger",
   div(
-    style="background-image: url(004.jpg); background-position: center bottom; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
-    class = "col-lg-8 col-md-6 m-0 p-0",
+    style="background-image: url(004.jpg); background-position: center center; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
+    class = "col-xxl-8 col-md-6 m-0 p-0",
     h1("Productos", class = "p-5")
   ),
   div(
-    class = "col-lg-4 col-md-6 m-0 p-0 ",
+    class = "col-xxl-4 col-md-6 m-0 p-0 ",
+    # style="background-image: url(004.jpg); background-position: center bottom; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
     div(
+      style="background-color: #131426;",
       class = "card m-0 rounded-0 border-0",
       # div(class="card-header", "Prosperico"),
-      img(class = "rounded-0 card-img", src = "019.jpg"),
+      # img(class = "rounded-0 card-img", src = "019.jpg"),
       div(
-        class = "card-img-overlay",
-        h2(class = "card-title text-center", "Inteligencia de negocios"),
-        h4(class = "card_text text-center", "Apoyamos todos los esfuerzos de una organización para transformar sus datos en ventajas competitivas."),
+        # class = "card-img-overlay",
+        class = "card-body",
+        h3(class = "card-title text-center", "Inteligencia de negocios"),
+        h4(class = "card_text text-center", "Orientamos la transformación de la información de tu organización en conocimiento y en ventajas competitivas."),
         # a(href = "#", class = "btn btn-warning", "ver más")
       )
     ),
     div(
+      style="background-color: #131426;",
       class = "card m-0 rounded-0 border-0",
-      img(class = "rounded-0 card-img", src = "018.jpg"),
+      # img(class = "rounded-0 card-img", src = "018.jpg"),
       div(
-        class = "card-img-overlay",
-        h2(class = "card-title text-center", "Inteligencia de mercados"),
-        h4(class = "card_text text-center", "Creamos estrategias de expansión, conversión y fidelización basadas en datos."),
+        class = "card-body",
+        h3(class = "card-title text-center", "Inteligencia de mercados"),
+        h4(class = "card_text text-center", "Creamos estrategias de penetración y profundización por medio utilizando activos de información que ya posees."),
         # a(href = "#", class = "btn btn-warning", "ver más")
       )
     ),
     div(
+      style="background-color: #131426;",
       class = "card m-0 rounded-0 border-0",
-      img(class = "rounded-0 card-img", src = "017.jpg"),
+      # img(class = "rounded-0 card-img", src = "017.jpg"),
       div(
-        class = "card-img-overlay",
-        h2(class = "card-title text-center", "Inteligencia artificial"),
-        h4(class = "card_text text-center", "Automatizamos procesos que hasta hoy requerían intervención humana."),
+        class = "card-body",
+        h3(class = "card-title text-center", "Inteligencia artificial"),
+        h4(class = "card_text text-center", "Automatizamos procesos que hasta hoy requerían intervención humana mejorando la eficiencia, velocidad y consistencia del servicio."),
         # a(href = "#", class = "btn btn-warning", "ver más")
       )
     )
@@ -200,11 +236,6 @@ div(
       class = "card m-5 rounded-0 border-0 p-3 bg-white", 
       style="width: 20rem;",
       src = "final_newsapiens.png"
-    ),
-    img(
-      class = "card m-5 rounded-0 border-0 p-3 bg-white", 
-      style="width: 20rem;",
-      src = "final_inmobana.png"
     )
   )
 ) -> clientes
@@ -218,7 +249,7 @@ div(
   h1("Comunícate con nosotros", class = "p-5 text-muted"),
   tags$iframe(
     src = "https://docs.google.com/forms/d/e/1FAIpQLSdXbCCaAcJs_GSppdQ6c5dv9uQbJJ57lrCmgANueXtoCFJHzQ/viewform?embedded=true",
-    width="640", height="700", frameborder="0", marginheight="0", marginwidth="0", "Cargando…"
+    width="640", height="1000", frameborder="0", marginheight="0", marginwidth="0", "Cargando…"
   )
 ) -> comunicate
 
@@ -232,7 +263,7 @@ div(
 ) -> landing_menu
 
 div(
-  id="comunicate",
+  id="landing",
   class = "row m-0",
   style="background-image: url(002.jpg); background-position: center bottom; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646; ; min-height: 100vh",
   div(
@@ -249,14 +280,13 @@ div(
   ),
   div(
     class = "col-lg-6 m-0 p-0 ",
-    h1("Comunícate con nosotros.", class = "p-5 text-muted"),
+    # h1("Obtén una asesoría gratuita", class = "p-5 text-muted"),
     div(
-      class="d-flex flex-row justify-content-center",
-      tags$iframe(
-        src = "https://docs.google.com/forms/d/e/1FAIpQLSdXbCCaAcJs_GSppdQ6c5dv9uQbJJ57lrCmgANueXtoCFJHzQ/viewform?embedded=true",
-        width="640", height="700", frameborder="0", marginheight="0", marginwidth="0", "Cargando…"
-      )
-    )
+      class="calendly-inline-widget",
+      "data-url"="https://calendly.com/cruz-julian-mauricio?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=15bf81", 
+      style= "min-width:480px;height:95vh;"
+    ),
+    tags$script(type="text/javascript", src="https://assets.calendly.com/assets/external/widget.js")
   )
 ) -> landing_content
 

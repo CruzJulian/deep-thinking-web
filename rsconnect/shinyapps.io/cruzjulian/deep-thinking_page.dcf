@@ -5,9 +5,10 @@ account: cruzjulian
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7809253
-bundleId: 6590498
+bundleId: 6620305
 url: https://cruzjulian.shinyapps.io/deep-thinking_page/
-when: 1670195149.55749
-lastSyncTime: 1670195149.55754
+when: 1670685256.45162
+lastSyncTime: 1670685256.45166
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: docker/dockerfile|docker/shiny-server.conf|sources
