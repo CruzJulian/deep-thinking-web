@@ -14,13 +14,14 @@ library("shiny.router")
 
 # Función para construir páginas dinámicamente ----------------------------
 
-fun_ui <- function(side_menu, main_content, menu_movil = menu_mov){
+fun_ui <- function(side_menu, main_content, menu_movil = menu_mov, html_h = html_head){
  
   fluidPage(
       theme = bs_theme(5, "darkly"),
       lang = "es",
       title = "Deep Thiking",
       class = "p-0 m-0",
+      html_h,
       menu_movil,
       div(
         class = "row m-0",
@@ -40,7 +41,8 @@ fun_ui <- function(side_menu, main_content, menu_movil = menu_mov){
 cntnt <- list(
   eq = list(
     titulo = "Equipo",
-    texto = "Somos una startup ágil. Nuestro equipo en crecimiento es altamente calificado y competitivo, lo que nos permite movernos mas rápido para satisfacer las necesidades de tu organización.",
+    subtitulo= "Somos una startup ágil",
+    texto = "Nuestro equipo en crecimiento es altamente calificado y competitivo, lo que nos permite movernos mas rápido para satisfacer las necesidades de tu organización.",
     ang = list(
       nom = "Ángela",
       desc = "Más de diez años de experiencia en procesos administrativos que se reflejan en visión y estrategia."
@@ -57,6 +59,15 @@ cntnt <- list(
 )
 
 
+# head --------------------------------------------------------------------
+
+tags$head(
+  tags$link(
+    rel="icon", 
+    href="favicon.svg", 
+    type="image/x-icon"
+  )
+) -> html_head
 
 # Contenidos móviles ------------------------------------------------------
 
@@ -116,56 +127,76 @@ div(
   ),
 ) -> inicio
 
-div(
-  style="background-image: url(002.jpg); background-position: center center; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
-  id="equipo",
-  class = "row m-0",
-  h1(class = "p-5 text-muted", cntnt$eq$titulo),
+list(
   div(
-    class = "row d-flex flex-row justify-content-center m-0 p-0 text-muted",
+    id="team-disclaimer",
+    class = "row m-0 bg-danger",
+    style="background-image: url(010.jpg); background-position: center right; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
     div(
-      class = "card mx-auto p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
-      # div(class="card-header", "Nuestra CFO"),
-      img(class = "card-img-top p-3", src = "009.png"),
-      div(
-        class = "card-body",
-        h5(class = "card-title", cntnt$eq$ang$nom),
-        p(class = "card_text", cntnt$eq$ang$desc),
-        # a(href = "#", class = "btn btn-success", "ver más")
-      )
+      class = "col-xxl-4 col-md-6 m-0 p-0 ",
+      # style="background-color: #131426;",
+      h1(cntnt$eq$titulo, class = "p-5"),
+      h1(
+        class = "row m-0 d-none d-md-block",
+        style = "height: 60vh;"
+      ),
+      h3(class = "text-left px-5 py-3", cntnt$eq$subtitulo),
+      h5(class = "text-left px-5 py-3", cntnt$eq$texto),
     ),
     div(
-      class = "card mx-auto p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
-      # div(class="card-header", "Nuestro CEO"),
-      img(class = "card-img-top p-3", src = "007.png"),
-      div(
-        class = "card-body",
-        h5(class = "card-title", cntnt$eq$jul$nom),
-        p(class = "card_text", cntnt$eq$jul$desc),
-        # a(href = "#", class = "btn btn-success", "ver más")
-      )
-    ),
-    div(
-      class = "card mx-auto p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
-      # div(class="card-header", "Nuestro CEO"),
-      img(class = "card-img-top p-3", src = "008.png"),
-      div(
-        class = "card-body",
-        h5(class = "card-title", cntnt$eq$liz$nom),
-        p(class = "card_text", cntnt$eq$liz$desc),
-        # a(href = "#", class = "btn btn-success", "ver más")
-      )
+      class = "col-xxl-8 col-md-6 m-0 p-0",
     )
   ),
-  h3(class = "text-center text-muted p-5", cntnt$eq$texto),
-  # style="height: 90vh;",
+  div(
+    style="background-image: url(002.jpg); background-position: center center; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
+    id="equipo",
+    class = "row m-0",
+    div(
+      class = "row d-flex flex-row justify-content-center m-0 p-0 text-muted",
+      div(
+        class = "card mx-auto my-1 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+        # div(class="card-header", "Nuestra CFO"),
+        img(class = "card-img-top p-3", src = "009.png"),
+        div(
+          class = "card-body",
+          h5(class = "card-title", cntnt$eq$ang$nom),
+          p(class = "card_text", cntnt$eq$ang$desc),
+          # a(href = "#", class = "btn btn-success", "ver más")
+        )
+      ),
+      div(
+        class = "card mx-auto my-1 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+        # div(class="card-header", "Nuestro CEO"),
+        img(class = "card-img-top p-3", src = "007.png"),
+        div(
+          class = "card-body",
+          h5(class = "card-title", cntnt$eq$jul$nom),
+          p(class = "card_text", cntnt$eq$jul$desc),
+          # a(href = "#", class = "btn btn-success", "ver más")
+        )
+      ),
+      div(
+        class = "card mx-auto my-1 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+        # div(class="card-header", "Nuestro CEO"),
+        img(class = "card-img-top p-3", src = "008.png"),
+        div(
+          class = "card-body",
+          h5(class = "card-title", cntnt$eq$liz$nom),
+          p(class = "card_text", cntnt$eq$liz$desc),
+          # a(href = "#", class = "btn btn-success", "ver más")
+        )
+      )
+    ),
+    # style="height: 90vh;",
+  )
 ) -> equipo
+
 
 div(
   id="productos",
   class = "row m-0 bg-danger",
+  style="background-image: url(004.jpg); background-position: center right; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
   div(
-    style="background-image: url(004.jpg); background-position: center center; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
     class = "col-xxl-8 col-md-6 m-0 p-0",
     h1("Productos", class = "p-5")
   ),
@@ -174,49 +205,50 @@ div(
     # style="background-image: url(004.jpg); background-position: center bottom; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
     div(
       style="background-color: #131426;",
-      class = "card m-0 rounded-0 border-0",
+      class = "card m-1 rounded-0 border-0",
       # div(class="card-header", "Prosperico"),
       # img(class = "rounded-0 card-img", src = "019.jpg"),
       div(
         # class = "card-img-overlay",
         class = "card-body",
-        h3(class = "card-title text-center", "Inteligencia de negocios"),
-        h4(class = "card_text text-center", "Orientamos la transformación de la información de tu organización en conocimiento y en ventajas competitivas."),
+        h3(class = "card-title text-left", "Inteligencia de negocios"),
+        h5(class = "card_text text-left", "Orientamos la transformación de la información de tu organización en conocimiento y en ventajas competitivas."),
         # a(href = "#", class = "btn btn-warning", "ver más")
       )
     ),
     div(
       style="background-color: #131426;",
-      class = "card m-0 rounded-0 border-0",
+      class = "card m-1 rounded-0 border-0",
       # img(class = "rounded-0 card-img", src = "018.jpg"),
       div(
         class = "card-body",
-        h3(class = "card-title text-center", "Inteligencia de mercados"),
-        h4(class = "card_text text-center", "Creamos estrategias de penetración y profundización por medio utilizando activos de información que ya posees."),
+        h3(class = "card-title text-left", "Inteligencia de mercados"),
+        h5(class = "card_text text-left", "Creamos estrategias de penetración y profundización por medio utilizando activos de información que ya posees."),
         # a(href = "#", class = "btn btn-warning", "ver más")
       )
     ),
     div(
       style="background-color: #131426;",
-      class = "card m-0 rounded-0 border-0",
+      class = "card m-1 rounded-0 border-0",
       # img(class = "rounded-0 card-img", src = "017.jpg"),
       div(
         class = "card-body",
-        h3(class = "card-title text-center", "Inteligencia artificial"),
-        h4(class = "card_text text-center", "Automatizamos procesos que hasta hoy requerían intervención humana mejorando la eficiencia, velocidad y consistencia del servicio."),
+        h3(class = "card-title text-left", "Inteligencia artificial"),
+        h5(class = "card_text text-left", "Automatizamos procesos que hasta hoy requerían intervención humana mejorando la eficiencia, velocidad y consistencia del servicio."),
         # a(href = "#", class = "btn btn-warning", "ver más")
       )
     )
   )
 ) -> productos
 
+
 div(
+  style="background-image: url(006.jpg); background-position: center bottom; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
   id="clientes",
   class = "row m-0 bg-danger",
-  style="background-image: url(006.jpg); background-position: center bottom; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646;",
+  h1("Nuestros clientes", class = "p-5 text-muted"),
   div(
     class = "row d-flex flex-row justify-content-center m-0 p-0",
-    h1("Nuestros clientes", class = "p-5"),
     img(
       class = "card m-5 rounded-0 border-0 p-3 bg-white", 
       style="width: 20rem;",
@@ -265,8 +297,8 @@ div(
 div(
   id="landing",
   class = "row m-0",
-  style="background-image: url(002.jpg); background-position: center bottom; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646; ; min-height: 100vh",
   div(
+    style="background-image: url(002.jpg); background-position: center bottom; background-repeat: no-repeat; background-attachment: relative; background-size: cover; background-color:#464646; ; min-height: 80vh",
     class = "col-lg-6 m-0 p-0",
     h1("¿De qué se trata?", class = "p-5 text-muted"),
     div(
@@ -284,7 +316,7 @@ div(
     div(
       class="calendly-inline-widget",
       "data-url"="https://calendly.com/cruz-julian-mauricio?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=15bf81", 
-      style= "min-width:480px;height:95vh;"
+      style= "min-width:480px;height:100vh; background-color: #ffffff;"
     ),
     tags$script(type="text/javascript", src="https://assets.calendly.com/assets/external/widget.js")
   )
@@ -307,7 +339,7 @@ server <- function(input, output, session) {
 }
 
 # Run the application 
-shinyApp(ui = router$ui, server = server)
+shinyApp(ui = router$ui, server = server, options = list(port = 4444))
 
 
 
