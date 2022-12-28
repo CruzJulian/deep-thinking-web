@@ -53,7 +53,15 @@ cntnt <- list(
     ),
     liz = list(
       nom = "Elizabeth",
-      desc = "Apoyo administrativo con sólidas beses en gestión y optimización de procesos."
+      desc = "Apoyo administrativo con sólidas bases en gestión y optimización de procesos."
+    ),
+    gus = list(
+      nom = "Gustavo",
+      desc = "Con una óptica gerencial, encuentra oportunidades tecnológicas en el contexto del cliente y de su negocio."
+    ),
+    and3 = list(
+      nom = "Andrés",
+      desc = "Líder de ciencia de datos con más de 5 años de experiencia."
     )
   )
 )
@@ -138,10 +146,10 @@ list(
       h1(cntnt$eq$titulo, class = "p-5"),
       h1(
         class = "row m-0 d-none d-md-block",
-        style = "height: 60vh;"
+        style = "height: 50vh;"
       ),
-      h3(class = "text-left px-5 py-3", cntnt$eq$subtitulo),
-      h5(class = "text-left px-5 py-3", cntnt$eq$texto),
+      h2(class = "text-left px-5 py-3", cntnt$eq$subtitulo),
+      h4(class = "text-left px-5 py-3", cntnt$eq$texto),
     ),
     div(
       class = "col-xxl-8 col-md-6 m-0 p-0",
@@ -154,9 +162,9 @@ list(
     div(
       class = "row d-flex flex-row justify-content-center m-0 p-0 text-muted",
       div(
-        class = "card mx-auto my-1 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+        class = "card mx-auto my-3 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
         # div(class="card-header", "Nuestra CFO"),
-        img(class = "card-img-top p-3", src = "009.png"),
+        img(class = "card-img-top p-3", src = "022.png"),
         div(
           class = "card-body",
           h5(class = "card-title", cntnt$eq$ang$nom),
@@ -165,9 +173,9 @@ list(
         )
       ),
       div(
-        class = "card mx-auto my-1 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+        class = "card mx-auto my-3 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
         # div(class="card-header", "Nuestro CEO"),
-        img(class = "card-img-top p-3", src = "007.png"),
+        img(class = "card-img-top p-3", src = "020.png"),
         div(
           class = "card-body",
           h5(class = "card-title", cntnt$eq$jul$nom),
@@ -176,13 +184,35 @@ list(
         )
       ),
       div(
-        class = "card mx-auto my-1 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+        class = "card mx-auto my-3 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
         # div(class="card-header", "Nuestro CEO"),
-        img(class = "card-img-top p-3", src = "008.png"),
+        img(class = "card-img-top p-3", src = "021.png"),
         div(
           class = "card-body",
           h5(class = "card-title", cntnt$eq$liz$nom),
           p(class = "card_text", cntnt$eq$liz$desc),
+          # a(href = "#", class = "btn btn-success", "ver más")
+        )
+      ),
+      div(
+        class = "card mx-auto my-3 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+        # div(class="card-header", "Nuestro CEO"),
+        img(class = "card-img-top p-3", src = "023.png"),
+        div(
+          class = "card-body",
+          h5(class = "card-title", cntnt$eq$gus$nom),
+          p(class = "card_text", cntnt$eq$gus$desc),
+          # a(href = "#", class = "btn btn-success", "ver más")
+        )
+      ),
+      div(
+        class = "card mx-auto my-3 p-0 rounded-0 border-0 bg-white", style="width: 25rem;",
+        # div(class="card-header", "Nuestro CEO"),
+        img(class = "card-img-top p-3", src = "024.png"),
+        div(
+          class = "card-body",
+          h5(class = "card-title", cntnt$eq$and3$nom),
+          p(class = "card_text", cntnt$eq$and3$desc),
           # a(href = "#", class = "btn btn-success", "ver más")
         )
       )
